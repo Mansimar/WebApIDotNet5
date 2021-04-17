@@ -56,7 +56,7 @@ namespace WebApiDemo.Infrastructure
 
             var productDetails = data.Where(x => x.ID == productId);
 
-            return (Task<ProductDetails>)productDetails;
+            return Task.FromResult(productDetails.FirstOrDefault());
         }
     }
 }
