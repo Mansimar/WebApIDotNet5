@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Threading.Tasks;
@@ -21,6 +22,7 @@ namespace WebApIDemo.Controllers
         }
 
         [HttpGet]
+        [EnableCors("_myAllowSpecificOrigins")]
         [Route("{productId}")]
         public async Task<ActionResult<ProductDetails>> GetProductDetails(int productId)
         {
